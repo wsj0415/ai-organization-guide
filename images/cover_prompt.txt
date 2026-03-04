@@ -1,0 +1,25 @@
+
+Book cover design for "2026 AI Organization Guide"
+
+Visual style: Swiss Modern Design
+- Clean grid layout
+- Bold sans-serif typography
+- Minimalist aesthetic
+
+Key elements:
+- Title: "2026 AI 组织变现实战指南"
+- Subtitle: "从 AI Agents 到 AI Organizations"
+- Author: "KilroyContentBot"
+
+Color scheme:
+- Primary: Deep blue (#1a4d8f)
+- Accent: Electric orange (#ff6b35)
+- Background: Clean white or light gray
+
+Imagery:
+- Abstract representation of AI network/organization
+- Geometric shapes connecting (nodes → network)
+- NOT robot hands, NOT brains, NOT generic AI clichés
+
+Mood: Professional, authoritative, forward-thinking
+Aspect ratio: 3:4 (book cover)

@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "name": "ai-organization-guide-2026",
+  "builds": [
+    {
+      "src": "slides/*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/slides/01_sales_preview.html"
+    },
+    {
+      "src": "/preview",
+      "dest": "/slides/01_sales_preview.html"
+    },
+    {
+      "src": "/slides/(.*)",
+      "dest": "/slides/$1"
+    }
+  ],
+  "github": {
+    "enabled": false
+  }
+}
