@@ -3,497 +3,403 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 AI 组织变现实战指南 - 预览幻灯片</title>
+  <title>2026 AI 组织变现实战指南 - 销售页</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: linear-gradient(135deg, #1a4d8f 0%, #0d2847 100%);
-      color: #ffffff;
-      overflow-x: hidden;
+    .gradient-bg {
+      background: linear-gradient(135deg, #1a4d8f 0%, #0d2847 50%, #0a1f35 100%);
     }
-    
-    .slide {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 60px;
-      position: relative;
-    }
-    
-    .slide-number {
-      position: absolute;
-      bottom: 30px;
-      right: 40px;
-      font-size: 14px;
-      opacity: 0.6;
-    }
-    
-    /* Slide 1: Cover */
-    .slide-cover {
-      background: linear-gradient(135deg, #1a4d8f 0%, #0d2847 100%);
-    }
-    
-    .slide-cover h1 {
-      font-size: 72px;
-      font-weight: 800;
-      text-align: center;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .slide-cover .subtitle {
-      font-size: 32px;
-      color: #ff6b35;
-      text-align: center;
-      margin-bottom: 40px;
-      font-weight: 400;
-    }
-    
-    .slide-cover .author {
-      font-size: 20px;
-      opacity: 0.8;
-      margin-top: 60px;
-    }
-    
-    .slide-cover .network-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.1;
-      background-image: 
-        radial-gradient(circle at 20% 30%, #ffffff 2px, transparent 2px),
-        radial-gradient(circle at 80% 70%, #ffffff 2px, transparent 2px),
-        radial-gradient(circle at 40% 80%, #ffffff 1.5px, transparent 1.5px),
-        radial-gradient(circle at 60% 20%, #ffffff 1.5px, transparent 1.5px);
-      background-size: 300px 300px;
-    }
-    
-    /* Slide 2: Problem */
-    .slide-problem {
-      background: #ffffff;
-      color: #1a4d8f;
-    }
-    
-    .slide-problem h2 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-    
-    .slide-problem .problem-box {
-      background: #f5f5f5;
-      padding: 40px;
-      border-radius: 16px;
-      max-width: 800px;
-      margin: 20px 0;
-    }
-    
-    .slide-problem .problem-box h3 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #ff6b35;
-    }
-    
-    .slide-problem .problem-box p {
-      font-size: 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-    
-    /* Slide 3: Solution */
-    .slide-solution {
+    .accent-gradient {
       background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
     }
-    
-    .slide-solution h2 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 40px;
-      text-align: center;
+    .card-gradient {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
     }
-    
-    .slide-solution .solution-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      max-width: 1000px;
-    }
-    
-    .slide-solution .feature {
-      background: rgba(255,255,255,0.15);
-      padding: 30px;
-      border-radius: 12px;
+    .glass {
       backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
     }
-    
-    .slide-solution .feature h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
+    .glow {
+      box-shadow: 0 0 40px rgba(255, 107, 53, 0.3);
     }
-    
-    .slide-solution .feature p {
-      font-size: 16px;
-      opacity: 0.9;
-      line-height: 1.5;
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
     }
-    
-    /* Slide 4: What You'll Learn */
-    .slide-learn {
-      background: #ffffff;
-      color: #1a4d8f;
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
     }
-    
-    .slide-learn h2 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 50px;
-      text-align: center;
+    .animate-pulse-slow {
+      animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
-    
-    .slide-learn ul {
-      list-style: none;
-      max-width: 900px;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
-    
-    .slide-learn li {
-      font-size: 24px;
-      padding: 20px 0;
-      padding-left: 40px;
-      position: relative;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    
-    .slide-learn li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #ff6b35;
-      font-weight: bold;
-      font-size: 28px;
-    }
-    
-    /* Slide 5: Pricing */
-    .slide-pricing {
-      background: linear-gradient(135deg, #1a4d8f 0%, #0d2847 100%);
-    }
-    
-    .slide-pricing h2 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    
-    .slide-pricing .pricing-card {
-      background: #ffffff;
-      color: #1a4d8f;
-      padding: 60px;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 600px;
-    }
-    
-    .slide-pricing .price-original {
-      font-size: 32px;
-      text-decoration: line-through;
-      color: #999;
-      margin-bottom: 10px;
-    }
-    
-    .slide-pricing .price-early {
-      font-size: 80px;
-      font-weight: 800;
-      color: #ff6b35;
-      margin-bottom: 20px;
-    }
-    
-    .slide-pricing .price-note {
-      font-size: 18px;
-      color: #666;
-      margin-bottom: 30px;
-    }
-    
-    .slide-pricing .cta-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
-      color: #ffffff;
-      padding: 20px 60px;
-      font-size: 24px;
-      font-weight: 700;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(255,107,53,0.3);
-      transition: transform 0.3s;
-    }
-    
-    .slide-pricing .cta-button:hover {
-      transform: translateY(-3px);
-    }
-    
-    /* Slide 6: Bonus */
-    .slide-bonus {
-      background: #ffffff;
-      color: #1a4d8f;
-    }
-    
-    .slide-bonus h2 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 50px;
-      text-align: center;
-    }
-    
-    .slide-bonus .bonus-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      max-width: 1100px;
-    }
-    
-    .slide-bonus .bonus-item {
-      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-    }
-    
-    .slide-bonus .bonus-item .icon {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-    
-    .slide-bonus .bonus-item h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    
-    .slide-bonus .bonus-item p {
-      font-size: 16px;
-      color: #666;
-    }
-    
-    /* Navigation */
-    .nav-dots {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 1000;
-    }
-    
-    .nav-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    
-    .nav-dot.active {
-      background: #ff6b35;
-      transform: scale(1.2);
-    }
-    
-    /* Progress bar */
-    .progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #ff6b35 0%, #ff8c5a 100%);
-      transition: width 0.3s;
-      z-index: 1001;
+    .checkmark {
+      color: #10b981;
     }
   </style>
 </head>
-<body>
-  <div class="progress-bar" id="progressBar"></div>
-  
-  <!-- Slide 1: Cover -->
-  <div class="slide slide-cover" data-slide="1">
-    <div class="network-bg"></div>
-    <h1>2026 AI 组织<br>变现实战指南</h1>
-    <div class="subtitle">从 AI Agents 到 AI Organizations</div>
-    <div class="author">KilroyContentBot 著</div>
-    <div class="slide-number">1 / 6</div>
-  </div>
-  
-  <!-- Slide 2: Problem -->
-  <div class="slide slide-problem" data-slide="2">
-    <h2>你是否也面临这些困境？</h2>
-    <div class="problem-box">
-      <h3>💸 人力成本越来越高</h3>
-      <p>客服、内容、数据团队每月花费 $15,000+，还在不断招人</p>
-    </div>
-    <div class="problem-box">
-      <h3>📉 效率提升遇到瓶颈</h3>
-      <p>买了各种 AI 工具，但还是要人工审核，省不了多少时间</p>
-    </div>
-    <div class="problem-box">
-      <h3>🤖 不知道如何规模化</h3>
-      <p>单个 AI 助手很好用，但无法替代整个部门</p>
-    </div>
-    <div class="slide-number">2 / 6</div>
-  </div>
-  
-  <!-- Slide 3: Solution -->
-  <div class="slide slide-solution" data-slide="3">
-    <h2>AI Organizations 解决方案</h2>
-    <div class="solution-grid">
-      <div class="feature">
-        <h3>🤖 自主决策</h3>
-        <p>AI 在规则内自己做决定，不需要人类事事审核</p>
-      </div>
-      <div class="feature">
-        <h3>👥 多 Agent 协作</h3>
-        <p>多个 AI 角色分工合作，像真实团队一样运转</p>
-      </div>
-      <div class="feature">
-        <h3>📈 持续学习</h3>
-        <p>从错误中自动优化，越用越聪明</p>
-      </div>
-      <div class="feature">
-        <h3>💰 结果导向</h3>
-        <p>对业务指标负责，不只是"完成任务"</p>
-      </div>
-    </div>
-    <div class="slide-number">3 / 6</div>
-  </div>
-  
-  <!-- Slide 4: What You'll Learn -->
-  <div class="slide slide-learn" data-slide="4">
-    <h2>你将学到什么？</h2>
-    <ul>
-      <li>理解 AI Organizations 与 AI Agents 的本质区别</li>
-      <li>掌握搭建 AI 客服/内容/数据组织的完整方法</li>
-      <li>获得经过验证的技术栈和架构设计</li>
-      <li>了解垂直领域的变现机会和进入策略</li>
-      <li>获得可直接使用的提示词模板和工具清单</li>
-    </ul>
-    <div class="slide-number">4 / 6</div>
-  </div>
-  
-  <!-- Slide 5: Pricing -->
-  <div class="slide slide-pricing" data-slide="5">
-    <h2>限时早鸟价</h2>
-    <div class="pricing-card">
-      <div class="price-original">$29.99</div>
-      <div class="price-early">$19.99</div>
-      <div class="price-note">前 100 名专享 · 节省 33%</div>
-      <a href="#" class="cta-button">立即预购 →</a>
-      <div style="margin-top: 30px; font-size: 16px; color: #999;">
-        📚 80-100 页电子书 · 🎁 附赠提示词模板 · 🔄 免费更新 1 年
-      </div>
-    </div>
-    <div class="slide-number">5 / 6</div>
-  </div>
-  
-  <!-- Slide 6: Bonus -->
-  <div class="slide slide-bonus" data-slide="6">
-    <h2>早鸟专属福利</h2>
-    <div class="bonus-grid">
-      <div class="bonus-item">
-        <div class="icon">🎯</div>
-        <h3>提示词模板库</h3>
-        <p>客服/内容/数据场景<br>50+ 精选模板</p>
-      </div>
-      <div class="bonus-item">
-        <div class="icon">💬</div>
-        <h3>私密 Discord</h3>
-        <p>与作者和其他读者<br>直接交流</p>
-      </div>
-      <div class="bonus-item">
-        <div class="icon">🔄</div>
-        <h3>免费更新 1 年</h3>
-        <p>所有内容更新<br>自动推送</p>
-      </div>
-    </div>
-    <div class="slide-number">6 / 6</div>
-  </div>
+<body class="bg-gray-900 text-white">
   
   <!-- Navigation -->
-  <div class="nav-dots" id="navDots"></div>
-  
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    const navDots = document.getElementById('navDots');
-    const progressBar = document.getElementById('progressBar');
-    let currentSlide = 0;
-    
-    // Create navigation dots
-    slides.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.className = 'nav-dot' + (index === 0 ? ' active' : '');
-      dot.addEventListener('click', () => goToSlide(index));
-      navDots.appendChild(dot);
-    });
-    
-    function goToSlide(index) {
-      slides[currentSlide].style.display = 'none';
-      navDots.children[currentSlide].classList.remove('active');
-      currentSlide = index;
-      slides[currentSlide].style.display = 'flex';
-      navDots.children[currentSlide].classList.add('active');
-      updateProgress();
-    }
-    
-    function updateProgress() {
-      const progress = ((currentSlide + 1) / slides.length) * 100;
-      progressBar.style.width = progress + '%';
-    }
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
-        if (currentSlide < slides.length - 1) {
-          goToSlide(currentSlide + 1);
-        }
-      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        if (currentSlide > 0) {
-          goToSlide(currentSlide - 1);
-        }
-      }
-    });
-    
-    // Touch navigation
-    let touchStartX = 0;
-    document.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-    });
-    
-    document.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0 && currentSlide < slides.length - 1) {
-          goToSlide(currentSlide + 1);
-        } else if (diff < 0 && currentSlide > 0) {
-          goToSlide(currentSlide - 1);
-        }
-      }
-    });
-    
-    // Initialize
-    updateProgress();
-  </script>
+  <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="text-xl font-bold">📘 AI 组织实战指南</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#features" class="hover:text-orange-400 transition">特点</a>
+          <a href="#chapters" class="hover:text-orange-400 transition">章节</a>
+          <a href="#pricing" class="hover:text-orange-400 transition">价格</a>
+          <a href="#faq" class="hover:text-orange-400 transition">FAQ</a>
+        </div>
+        <a href="#pricing" class="accent-gradient px-6 py-2 rounded-full font-semibold hover:opacity-90 transition glow">
+          立即预购
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg min-h-screen flex items-center pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-orange-400 text-sm font-medium">
+            🚀 100% 初稿已完成 · 50,000 字实战指南
+          </div>
+          <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+            2026 AI 组织<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">变现实战指南</span>
+          </h1>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            从 AI Agents 到 AI Organizations —— 单人团队如何替代整个功能层，实现月入$10,000+ 的被动收入
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#pricing" class="accent-gradient px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition glow text-center">
+              限时早鸟 $19.99 →
+            </a>
+            <a href="#chapters" class="border border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition text-center">
+              查看目录
+            </a>
+          </div>
+          <div class="flex items-center gap-6 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> 12 章完整内容
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> 50,000 字
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> 立即交付
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="card-gradient rounded-2xl p-8 border border-white/10 glow animate-float">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-400">内容完成度</span>
+                <span class="text-orange-400 font-bold">100%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-3">
+                <div class="accent-gradient h-3 rounded-full" style="width: 100%"></div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">12</div>
+                  <div class="text-sm text-gray-400">章节</div>
+                </div>
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">50K</div>
+                  <div class="text-sm text-gray-400">字数</div>
+                </div>
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">$10K</div>
+                  <div class="text-sm text-gray-400">月收入目标</div>
+                </div>
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">85%</div>
+                  <div class="text-sm text-gray-400">毛利率</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="bg-gray-900 py-12 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-gray-400 mb-8">基于真实实战经验 · 已验证的 AI 组织方法论</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-orange-400 mb-2">5 条</div>
+          <div class="text-gray-400">高价值趋势洞察</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-orange-400 mb-2">$282K</div>
+          <div class="text-gray-400">年节省成本案例</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-orange-400 mb-2">1-2 月</div>
+          <div class="text-gray-400">ROI 回本周期</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="bg-gray-800 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">为什么需要这本书？</h2>
+        <p class="text-xl text-gray-400">AI 组织是 2026 年最大的变现机会，但 90% 的人还在用 2025 年的方法</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card-gradient p-8 rounded-2xl border border-white/10">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-bold mb-3">实战导向</h3>
+          <p class="text-gray-400">不是理论，是经过验证的实战方法。每个章节都有可执行的行动清单。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="text-xl font-bold mb-3">数据驱动</h3>
+          <p class="text-gray-400">基于 200+ 企业调研，5 条高价值趋势，真实 ROI 计算。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10">
+          <div class="text-4xl mb-4">🛠️</div>
+          <h3 class="text-xl font-bold mb-3">工具完整</h3>
+          <p class="text-gray-400">包含完整工具清单、提示词模板、ROI 计算器，拿来就能用。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10">
+          <div class="text-4xl mb-4">💰</div>
+          <h3 class="text-xl font-bold mb-3">变现路径</h3>
+          <p class="text-gray-400">从 0 到$10,000/月的完整路径，3 个真实案例拆解。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10">
+          <div class="text-4xl mb-4">🎨</div>
+          <h3 class="text-xl font-bold mb-3">视觉设计</h3>
+          <p class="text-gray-400">Swiss Modern 设计风格，专业外观，提升信任度。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-xl font-bold mb-3">快速启动</h3>
+          <p class="text-gray-400">1 小时 50 分钟完成 50,000 字，AI 组织效率的真实证明。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapters -->
+  <section id="chapters" class="bg-gray-900 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">完整目录</h2>
+        <p class="text-xl text-gray-400">12 章完整内容 + 附录，约 50,000 字</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 1 章</span>
+          <h3 class="text-lg font-semibold mt-2">AI Agents vs AI Organizations</h3>
+          <p class="text-gray-400 text-sm mt-2">理解 AI 组织与 AI 助手的本质区别</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 2 章</span>
+          <h3 class="text-lg font-semibold mt-2">AI 原生组织的 5 个特征</h3>
+          <p class="text-gray-400 text-sm mt-2">识别真假 AI 组织的判断框架</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 3 章</span>
+          <h3 class="text-lg font-semibold mt-2">哪些功能层最先被替代</h3>
+          <p class="text-gray-400 text-sm mt-2">客服/内容/数据的替代优先级地图</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 4 章</span>
+          <h3 class="text-lg font-semibold mt-2">技术栈选择</h3>
+          <p class="text-gray-400 text-sm mt-2">LLM 模型、Agent 框架、数据库选型指南</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 5 章</span>
+          <h3 class="text-lg font-semibold mt-2">搭建 AI 客服组织</h3>
+          <p class="text-gray-400 text-sm mt-2">5 个 Agent 协作，月省$282,000 案例</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 6 章</span>
+          <h3 class="text-lg font-semibold mt-2">搭建 AI 内容创作组织</h3>
+          <p class="text-gray-400 text-sm mt-2">6 个 Agent，爆款率从 3% 提升到 12%</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 7 章</span>
+          <h3 class="text-lg font-semibold mt-2">搭建 AI 数据分析组织</h3>
+          <p class="text-gray-400 text-sm mt-2">4 个 Agent，实时告警 + 自动报告</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 8 章</span>
+          <h3 class="text-lg font-semibold mt-2">AI 组织即服务 (AOaaS)</h3>
+          <p class="text-gray-400 text-sm mt-2">把你的 AI 组织能力产品化变现</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 9 章</span>
+          <h3 class="text-lg font-semibold mt-2">垂直领域机会</h3>
+          <p class="text-gray-400 text-sm mt-2">TOP 5 推荐领域，避开红海竞争</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 10 章</span>
+          <h3 class="text-lg font-semibold mt-2">从 0 到$10,000/月</h3>
+          <p class="text-gray-400 text-sm mt-2">三阶段增长模型，3 个真实案例</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 11 章</span>
+          <h3 class="text-lg font-semibold mt-2">法律与伦理</h3>
+          <p class="text-gray-400 text-sm mt-2">数据隐私、知识产权、合规 checklist</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <span class="text-orange-400 font-bold">第 12 章</span>
+          <h3 class="text-lg font-semibold mt-2">2027-2030 趋势预测</h3>
+          <p class="text-gray-400 text-sm mt-2">技术演进、市场演变、监管趋势</p>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <div class="inline-block card-gradient p-6 rounded-xl border border-white/10">
+          <h3 class="text-xl font-bold mb-4">附录内容</h3>
+          <div class="grid md:grid-cols-3 gap-4 text-left">
+            <div class="flex items-center gap-2">
+              <span class="checkmark">✓</span>
+              <span class="text-gray-400">工具清单（LLM/框架/数据库）</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="checkmark">✓</span>
+              <span class="text-gray-400">提示词模板（客服/内容/数据）</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="checkmark">✓</span>
+              <span class="text-gray-400">ROI 计算器（3 种场景）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="bg-gray-800 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">限时早鸟价</h2>
+        <p class="text-xl text-gray-400">前 100 名专享 · 节省 33%</p>
+      </div>
+      <div class="max-w-lg mx-auto">
+        <div class="card-gradient p-8 rounded-3xl border-2 border-orange-500/50 glow relative overflow-hidden">
+          <div class="absolute top-0 right-0 accent-gradient text-white px-6 py-2 rounded-bl-2xl font-bold">
+            限时优惠
+          </div>
+          <div class="text-center mb-8">
+            <div class="text-gray-400 text-lg line-through">$29.99</div>
+            <div class="text-6xl font-extrabold text-orange-400 mt-2">$19.99</div>
+            <div class="text-gray-400 mt-2">一次性付费 · 永久访问</div>
+          </div>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <span class="checkmark text-xl">✓</span>
+              <span>12 章完整内容（50,000 字）</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="checkmark text-xl">✓</span>
+              <span>附录：工具清单 + 提示词 + 计算器</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="checkmark text-xl">✓</span>
+              <span>GitHub 仓库永久访问</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="checkmark text-xl">✓</span>
+              <span>免费更新 1 年</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="checkmark text-xl">✓</span>
+              <span>私密 Discord 社群会员（前 100 名）</span>
+            </div>
+          </div>
+          <button class="w-full accent-gradient py-4 rounded-full font-bold text-lg hover:opacity-90 transition glow">
+            立即预购 →
+          </button>
+          <p class="text-center text-gray-400 text-sm mt-4">
+            📚 电子书格式：PDF + ePub + Markdown<br>
+            🚀 立即交付：支付后自动发送下载链接
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-gray-900 py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">常见问题</h2>
+      </div>
+      <div class="space-y-6">
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <h3 class="text-lg font-bold mb-2">Q: 这本书适合谁？</h3>
+          <p class="text-gray-400">独立开发者、创业者、小企业主、自由职业者。如果你想用 AI 降低人力成本或创造被动收入，这本书适合你。</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <h3 class="text-lg font-bold mb-2">Q: 需要技术背景吗？</h3>
+          <p class="text-gray-400">不需要。本书从基础概念讲起，提供完整代码示例和配置指南。有基础会更好，但没有也能跟上。</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <h3 class="text-lg font-bold mb-2">Q: 多久能回本？</h3>
+          <p class="text-gray-400">根据书中案例，平均 ROI 周期是 1-2 个月。如果你按照书中的方法实施，第一个月就能看到明显效果。</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10">
+          <h3 class="text-lg font-bold mb-2">Q: 如何获取更新？</h3>
+          <p class="text-gray-400">购买后加入私密 Discord 社群，所有更新会自动推送。GitHub 仓库也会同步更新。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="gradient-bg py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">准备好开始 AI 组织转型了吗？</h2>
+      <p class="text-xl text-gray-300 mb-8">
+        限时早鸟价 $19.99，前 100 名赠送 Discord 社群会员
+      </p>
+      <a href="#pricing" class="accent-gradient inline-block px-12 py-5 rounded-full font-bold text-xl hover:opacity-90 transition glow">
+        立即预购 →
+      </a>
+      <p class="text-gray-400 mt-6">
+        📚 12 章完整内容 · 50,000 字 · 永久访问
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-gray-400">
+          © 2026 KilroyContentBot. All rights reserved.
+        </div>
+        <div class="flex gap-6">
+          <a href="https://github.com/wsj0415/ai-organization-guide" class="text-gray-400 hover:text-white transition" target="_blank">GitHub</a>
+          <a href="https://wsj0415.github.io/ai-organization-guide/" class="text-gray-400 hover:text-white transition" target="_blank">预览页</a>
+          <a href="https://notion.so/31949e5eec0f812390edcbcc8220bf39" class="text-gray-400 hover:text-white transition" target="_blank">Notion</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
